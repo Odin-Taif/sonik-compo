@@ -1,9 +1,11 @@
 import { IconType } from "react-icons";
+import { MoonLoader } from "react-spinners";
 type Props = {
   label: string;
   disabled?: boolean;
   small?: boolean;
   widthFull?: boolean;
+  loading?: boolean;
   icon?: IconType;
 };
 export const Button = ({
@@ -11,6 +13,7 @@ export const Button = ({
   disabled,
   small,
   widthFull,
+  loading,
   icon: Icon,
 }: Props) => {
   return (
@@ -25,7 +28,8 @@ export const Button = ({
          }`}
     >
       {Icon && <Icon size={20} className={`left-4 top-3 mr-2`} />}
-      <span>{label}</span>
+      <span className="mx-2 text-white">{label}</span>
+      {loading && <MoonLoader color="#ffffff" size={15} loading={loading} />}
     </button>
   );
 };
