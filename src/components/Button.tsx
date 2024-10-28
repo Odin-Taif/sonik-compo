@@ -1,10 +1,18 @@
+import { IconType } from "react-icons";
 type Props = {
   label: string;
   disabled?: boolean;
   small?: boolean;
   widthFull?: boolean;
+  icon?: IconType;
 };
-export const Button = ({ label, disabled, small, widthFull }: Props) => {
+export const Button = ({
+  label,
+  disabled,
+  small,
+  widthFull,
+  icon: Icon,
+}: Props) => {
   return (
     <button
       disabled={disabled}
@@ -16,7 +24,8 @@ export const Button = ({ label, disabled, small, widthFull }: Props) => {
              : "w-auto"
          }`}
     >
-      {label}
+      {Icon && <Icon size={20} className={`left-4 top-3 mr-2`} />}
+      <span>{label}</span>
     </button>
   );
 };
